@@ -1,0 +1,118 @@
+/* style.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  max-width: 320px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.logo {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: rgb(3, 25, 66);
+  outline: none;
+}
+
+
+
+input[type="checkbox"] {
+  margin-right: 0.3rem;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+#match-feedback {
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  text-align: left;
+  color: red;
+
+
+}
+
+#match-feedback.match {
+  color: green;
+}
+
+
+button {
+  padding: 0.6rem;
+  background-color: #031942;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #031942;
+}
+
+
+#success-message {
+  margin-top: 0.8rem;
+  color: green;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutambule Passenger Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="form-container fade-in">
+    <img src="tut logo.png.jpg" alt="Tutambule Logo" class="logo" />
+    <h2>Passenger Registration</h2>
+    <form id="registration-form">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" required />
+
+      <label style="font-size: 0.9rem;">
+        <input type="checkbox" id="toggle-passwords" />
+        Show Passwords
+      </label>
+
+      <div id="match-feedback"></div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div id="success-message" class="hidden">
+      ✅ Registration successful! Thank you for joining Tutambule.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("registration-form");
+    const successMessage = document.getElementById("success-message");
+
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirm-password");
+    const togglePasswords = document.getElementById("toggle-passwords");
+    const matchFeedback = document.getElementById("match-feedback");
+
+    // Toggle both password fields
+    togglePasswords.addEventListener("change", function () {
+      const type = this.checked ? "text" : "password";
+      passwordInput.type = type;
+      confirmInput.type = type;
+    });
+
+    // Real-time password match feedback
+    confirmInput.addEventListener("input", function () {
+      if (confirmInput.value === "") {
+        matchFeedback.textContent = "";
+      } else if (confirmInput.value === passwordInput.value) {
+        matchFeedback.textContent = "✅ Passwords match";
+        matchFeedback.style.color = "green";
+      } else {
+        matchFeedback.textContent = "❌ Passwords do not match";
+        matchFeedback.style.color = "red";
+      }
+    });
+
+    // Handle form submission
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (passwordInput.value !== confirmInput.value) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+
+      successMessage.classList.remove("hidden");
+      form.reset();
+      matchFeedback.textContent = "";
+    });
+  </script>
+</body>
+</html>
+
